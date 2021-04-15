@@ -1,5 +1,83 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-    <h1>Home</h1>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-10 align-self-end">
+                    <h1 class="text-white font-weight-bold">
+                        Du gras, oui, mais de qualité !
+                    </h1>
+                    <hr class="divider my-4" />
+                    <h2 class="text-white-75 font-weight-light mb-5">
+                        Trouverez un produit de substitution pour ceux que vous consommez tous les jours.
+                    </h2>
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <form id="main-form" method="POST">
+                        <div class="input-group">
+                            <input id="data" type="text" name="submitText" class="form-control"
+                                   placeholder="Rechercher un aliment">
+                            <span class="input-group-append">
+                                <button class="myButton btn btn-primary" type="submit">Afficher</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Services-->
+    <section class="page-section" id="services">
+        <div class="container">
+            <h2 class="text-center mt-0">Colette et Remy</h2>
+            <hr class="divider my-4" />
+            <p class="text-center">
+                Nous sommes une jeune startup fondée par Remy et Colette Tatou,
+                deux restaurateurs de renom. Notre restaurant, situé à Montmartre (Paris),
+                compte une cinquantaine de couverts et ne désemplit pas.
+                Notre spécialité, la ratatouille, nous attire une clientèle internationale charmée
+                par les délices de ce plat typique.
+            </p>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 text-center">
+                    <div class="mt-5">
+                        <img src="{% static 'images/colette.png' %}" class="mb-4" />
+                        <h3 class="h4 mb-2">Colette</h3>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 text-center">
+                    <div class="mt-5">
+                        <img src="{% static 'images/remy.png' %}" class="mb-4" />
+                        <h3 class="h4 mb-2">Remy</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact-->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mt-0">Contactez-nous !</h2>
+                    <hr class="divider my-4" />
+                    <p class="text-muted mb-5">Toute notre équipe est à votre disposition et à votre écoute !</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+                    <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
+                    <div>01 22 33 44 55</div>
+                </div>
+                <div class="col-lg-4 mr-auto text-center">
+                    <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
+                    <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
+                    <a class="d-block" href="mailto:contact@yourwebsite.com">contact@app-purbeurre.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

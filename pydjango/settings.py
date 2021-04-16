@@ -133,3 +133,7 @@ MEDIA_ROOT = BASE_DIR / 'mediafiles'
 AUTH_USER_MODEL = "accounts.CustomUser"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+LOGIN_REDIRECT_URL = "frontend:home"
+LOGOUT_REDIRECT_URL = "frontend:home"
+LOGIN_URL = "accounts:login"

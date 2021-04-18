@@ -17,10 +17,14 @@
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="{% url "accounts:register" %}">Inscription</a>
+                    <a class="nav-link js-scroll-trigger" href="{% url "accounts:register" %}">
+                        <img src="{% static "images/register.png" %}" />
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="{% url "accounts:login" %}">Connexion</a>
+                    <a class="nav-link js-scroll-trigger" href="{% url "accounts:login" %}">
+                        <img src="{% static "images/login.png" %}" />
+                    </a>
                 </li>
                 {% endif %}
             </ul>

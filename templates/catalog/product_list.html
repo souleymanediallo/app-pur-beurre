@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <header class="smallheader text-center text-white d-flex" style="background-image: url({{ image }}) !important;">
+        <div class="container my-auto">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h1 class="text-uppercase">
+                        <strong>{{ title }}</strong>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <div class="row">
+            {% if products %}
+                {% for product in products %}
+                <div class="col-md-4">
+                    <div class="card mb-3">
+                        <img src="{{ product.picture }}" class="card-img-top" width="100%" height="250">
+                        <a href="#"></a>
+                        <div class="card-body text-center">
+                            <h2 class="h6">{{ product.name }}</h2>
+                            <button class="btn btn-danger">Substituer</button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>Aucun produit trouvé</p>
+            {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock content %}

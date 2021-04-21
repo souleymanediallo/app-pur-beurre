@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <header class="s-masthead text-center text-white d-flex" style="background-image: url({{ image }}) !important;">
+        <div class="container my-auto">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h1 class="text-uppercase">
+                        <strong>{{ title }}</strong>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-section">
+        <div class="container">
+            <h2 class="text-center mt-0">Fiche produit</h2>
+            <hr class="divider my-2" />
+            <div class="row">
+                <div class="col-lg-6 col-md-12 text-center">
+                    <img src="https://static.openfoodfacts.org/images/misc/nutriscore-{{ product.nutrition_grade }}.svg" />
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <ul>
+                        <li><b>Nom :</b> {{ product.name }}kcal</li>
+                        <li><b>Category :</b> {{ product.category }}kcal</li>
+                        <li><b>Marque :</b> {{ product.brand }}g</li>
+                    </ul>
+                </div>
+
+                <div class="col-12 text-center">
+                    <a id="off-btn" class="btn btn-primary js-scroll-trigger" href="{{ product.url }}"
+                       target="_blank">Voir la  fiche d'OpenFoodFacts</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

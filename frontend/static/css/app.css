@@ -6,6 +6,15 @@ h1, h2, h3{
     font-family: "Scope One", sans-serif;
 }
 
+.header-m {
+    padding-top: 10rem;
+    padding-bottom: calc(10rem - 56px);
+    background-image: url('../images/bg-masthead.jpg');
+    background-position: center center;
+    background-size: cover;
+    height: 300px;
+}
+
 @media (min-width: 992px){
     header.s-masthead {
         height: 300px;

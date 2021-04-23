@@ -26,6 +26,9 @@ class Product(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ["name", "nutrition_grade"]
+
     def __str__(self):
         return self.name
 
@@ -40,3 +43,6 @@ class Favorite(models.Model):
 
     def __str__(self):
         return f" {self.user_name} "
+
+    def get_absolute_url(self):
+        return reverse('catalog:delete-favorite', kwargs={'product_id': self.pk})

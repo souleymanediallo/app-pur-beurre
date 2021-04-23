@@ -1,0 +1,59 @@
+{% extends "admin/base.html" %}
+
+{% block branding %}
+
+    <h1 id="site-name"><a href="{% url 'admin:index' %}">Application Pur Beurre</a></h1>
+
+{% endblock %}
+
+{% block extrastyle %}
+    <style>
+
+    :root {
+        --link-fg: #f4623a;
+        --primary: #f4623a;
+        --secondary: #f4623a;
+    }
+
+    #header {
+        background-color: #1b1e21;
+    }
+    #branding h1 {
+        color: #fff;
+        font-size: 1.5rem;
+        text-transform: capitalize;
+        font-weight: bold;
+    }
+
+    #branding h1, #branding h1 a:link, #branding h1 a:visited, #header, a:visited {
+        color: #f4623a;
+    }
+
+    #user-tools a:focus, #user-tools a:hover {
+        color: #f4623a;
+    }
+
+    #user-tools a {
+        border-bottom: 0px;
+    }
+
+    body {
+        background-color: #3b3b4c;
+
+    }
+
+    div.breadcrumbs, .module caption, .module h2 {
+        background-color: #f4623a;
+        color: #ffffff;
+    }
+
+    table tbody tr td a:link {
+        color: #000000;
+    }
+
+    #content h1 {
+        color: #ffffff;
+    }
+
+    </style>
+{% endblock %}

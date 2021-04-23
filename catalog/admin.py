@@ -6,11 +6,15 @@ from .models import Category, Product, Favorite
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ["name"]
     list_display_links = ["name"]
+    list_filter = ["name"]
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ["name", "category", "brand"]
+    list_display = ["name", "category", "nutrition_grade", "brand"]
     list_display_links = ["name"]
+    search_fields = ["name"]
+    list_filter = ["nutrition_grade"]
+    list_per_page = 50
 
 
 class FavoriteAdmin(admin.ModelAdmin):

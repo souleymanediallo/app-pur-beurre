@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block content %}
     <!-- Masthead-->
@@ -16,15 +17,16 @@
         </div>
     </header>
     <section class="my-5">
-        <div class="container">
+        <div class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">
                             <h1 class="h3">Mon Profile</h1>
                         </div>
-                        <div class="card-body">
-                            <h2>Pseudo : {{ user.username }}</h2>
+                        <div class="card-body border">
+                            <p class="h3">Pseudo : {{ user.username }}</p>
+                            <p class="h3"><a href="{% url 'catalog:my-favorite' %}">Voir mes produits favorits</a></p>
                         </div>
                     </div>
                 </div>

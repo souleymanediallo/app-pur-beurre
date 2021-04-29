@@ -21,15 +21,6 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env.bool("DEBUG")
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 
-AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
-AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
-AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
-
-AWS_S3_REGION_NAME = 'us-west-2'
-AWS_S3_CUSTOM_DOMAIN = '%s.S3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_DEFAULT_ACL = None
-
-
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -44,6 +35,20 @@ INSTALLED_APPS = [
     'crispy_forms',
     'storages',
 ]
+
+AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
+AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
+
+AWS_S3_REGION_NAME = 'us-west-2'
+AWS_DEFAULT_ACL = None
+
+if not DEBUG:
+    STATICFILES_LOCATION = 'static'
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+
+    MEDIAFILES_LOCATION = 'media'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,14 +86,6 @@ WSGI_APPLICATION = 'pydjango.wsgi.application'
 DATABASES = {"default": env.db("DATABASE_URL", default="postgres:///apppurbeurre")}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
-if not DEBUG:
-    STATICFILES_LOCATION = 'static'
-    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-
-    MEDIAFILES_LOCATION = 'media'
-    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -120,7 +117,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/

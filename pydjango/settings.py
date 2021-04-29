@@ -5,40 +5,30 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
 
-# if env == 'production':
-#     ALLOWED_HOSTS = ['.herokuapp.com']
-#     SECRET_KEY = os.environ.get('SECRET_KEY')
-#     DEBUG = int(os.environ.get('DEBUG'))
-#     import dj_database_url
-#     DATABASES['default'] = dj_database_url.config(conn_max_ \ age=600)
-
 READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=True)
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-
 
 if READ_DOT_ENV_FILE:
     # OS environment variables take precedence over variables from .env
     env.read_env(str(BASE_DIR / ".env"))
-    # env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env("SECRET_KEY")
-#SECRET_KEY = 'cv5(b#e=0%-yp@+376^h9%93iw+i+kgsi&-&9gkqs#gpz$5eed'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG")
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 
-#DEBUG = True
-#ALLOWED_HOSTS = []
-
+AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
+AWS_S3_REGION_NAME = env("AWS_S3_REGION_NAME")
+AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
+AWS_S3_CUSTOM_DOMAIN = env("AWS_S3_CUSTOM_DOMAIN")
+AWS_DEFAULT_ALC = env("AWS_DEFAULT_ALC")
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -50,6 +40,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'catalog.apps.CatalogConfig',
     'crispy_forms',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -88,19 +79,13 @@ WSGI_APPLICATION = 'pydjango.wsgi.application'
 DATABASES = {"default": env.db("DATABASE_URL", default="postgres:///apppurbeurre")}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'apppurbeurre',
-#         'USER': 'appsd',
-#         'PASSWORD': 'django1234',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
-
 if not DEBUG:
-    pass
+    STATICFILES_LOCATION = 'static'
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+
+    MEDIAFILES_LOCATION = 'media'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

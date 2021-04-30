@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db.models.signals import post_save
 
-from pydjango import settings
 
 # CustomUser
 # https://docs.djangoproject.com/en/3.2/topics/auth/customizing/
@@ -13,7 +12,10 @@ class MyUserManager(BaseUserManager):
         if not email:
             raise ValueError("L'email est obligatoire")
 
-        user = self.model(email=self.normalize_email(email), username=username,)
+        user = self.model(
+            email=self.normalize_email(email),
+            username=username,
+        )
         user.set_password(password)
         user.save()
         return user
@@ -33,7 +35,7 @@ class CustomUser(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username"]
     objects = MyUserManager()
 
@@ -45,7 +47,7 @@ class CustomUser(AbstractBaseUser):
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
 
 
 def post_save_receiver(sender, instance, created, **kwargs):
@@ -53,4 +55,4 @@ def post_save_receiver(sender, instance, created, **kwargs):
         Profile.objects.create(user=instance)
 
 
-post_save.connect(post_save_receiver, sender=settings.AUTH_USER_MODEL)
+post_save.connect(post_save_receiver, sender=CustomUser)

@@ -1,7 +1,9 @@
 from django.db import models
 from django.urls import reverse
-from pydjango import settings
 
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 # Create your models here.
 class Category(models.Model):
@@ -17,7 +19,9 @@ class Category(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=200, unique=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="product")
+    category = models.ForeignKey(
+        Category, on_delete=models.CASCADE, related_name="product"
+    )
     brand = models.CharField(max_length=200)
     nutrition_grade = models.CharField(max_length=1)
     picture = models.URLField()
@@ -33,11 +37,11 @@ class Product(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('catalog:detail', kwargs={'product_id': self.pk})
+        return reverse("catalog:detail", kwargs={"product_id": self.pk})
 
 
 class Favorite(models.Model):
-    user_name = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user_name = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
 
@@ -45,4 +49,4 @@ class Favorite(models.Model):
         return f" {self.user_name} "
 
     def get_absolute_url(self):
-        return reverse('catalog:delete-favorite', kwargs={'product_id': self.pk})
+        return reverse("catalog:delete-favorite", kwargs={"product_id": self.pk})

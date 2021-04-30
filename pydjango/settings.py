@@ -47,10 +47,10 @@ if not DEBUG:
     pass
 
 STATICFILES_LOCATION = 'static'
-STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+STATICFILES_STORAGE = env("STATICFILES_STORAGE")
 
 MEDIAFILES_LOCATION = 'media'
-DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+DEFAULT_FILE_STORAGE = env("DEFAULT_FILE_STORAGE")
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

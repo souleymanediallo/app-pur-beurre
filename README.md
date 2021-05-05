@@ -37,6 +37,11 @@ Activer l'environnement virtuel
 $ source venv/bin/activate
 ```
 
+Créer une base de donnée Postgresl
+```basededonnee
+$ createdb NAMAPP
+```
+
 Intaller les dépendances du projet
 ```installer
 $ pip install -r requirements.txt

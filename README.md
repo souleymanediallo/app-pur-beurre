@@ -3,16 +3,16 @@
 ## Contexte
 
 Il s’agit de créer une application web en utilisant le framework Django et l’API OPENFOODFACTS. 
-Cette application permettra à quiconque de trouver un substitut sain à un aliment considéré comme "Trop gras,
-trop sucré, trop salé". Pour ce faire, je crée un algorithme qui va chercher dans ma base de données l’aliment 
+Cette application permettra à quiconque de trouver un substitut sain à un aliment considéré comme **"Trop gras,
+trop sucré, trop salé"**. Pour ce faire, je crée un algorithme qui va chercher dans ma base de données l’aliment 
 qui a un meilleur score nutritionnel à l’aliment demandé et qui est dans la même catégorie. 
 Cela nécessite l’utilisation des librairies externes comme Bootstrap ainsi que jQuery. 
 L’application doit être responsive,  tester et déployer sur heroku en respectant le cahier des charges.
 
 ## Liens
 
-* [Lien Trello](https://trello.com/b/j1Zc429R/projet-8-créez-une-plateforme-pour-amateurs-de-nutella)
-* [Lien Heroku](https://app-pur-beurre.herokuapp.com/)
+* [Lien vers Trello](https://trello.com/b/j1Zc429R/projet-8-créez-une-plateforme-pour-amateurs-de-nutella)
+* [Lien vers Heroku](https://app-pur-beurre.herokuapp.com/)
 
 ## Installation
 
@@ -39,7 +39,12 @@ $ source venv/bin/activate
 
 Créer une base de donnée Postgresl
 ```basededonnee
-$ createdb NAMAPP
+$ createdb apppurbeurre
+```
+
+Créer un fichier .env et renseigner vos variables d'environnement
+```environnement
+$ touch .env
 ```
 
 Intaller les dépendances du projet
@@ -74,6 +79,7 @@ python manage.py test
 * Django 3.2
 * HTML5 & CSS3
 * Bootstrap 5
+* Start Bootstrap
 
 
 ## Auteur

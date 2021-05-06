@@ -2,20 +2,41 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.db.models import Q
 
 from .models import Product, Favorite
 
 
 # Create your views here.
+def search_nav(request):
+    products = None
+    query = None
+    if 'q' in request.GET:
+        query = request.get('q')
+        product = Product.objects.filter(name=query).first()
+        substitutes = Product.objects.filter(
+            category=product.category,
+            nutrition_grade=product.nutrition_grade).order_by("nutrition_grade")[:12]
+
+        products = substitutes
+        context = {
+            'products': products,
+            'title': query,
+            'image': product.picture,
+        }
+        return render(request, 'catalog/search.html', context)
+
+
 def search(request):
     query = request.GET.get('query')
     try:
         product = Product.objects.filter(name=query).first()
-        substitutes = Product.objects.filter(category=product.category).order_by("nutrition_grade")[:12]
+        substitutes = Product.objects.filter(
+            category=product.category,
+            nutrition_grade=product.nutrition_grade).order_by("nutrition_grade")[:12]
         products = substitutes
         context = {
             'products': products,
-            'paginate': True,
             'title': query,
             'image': product.picture,
         }
@@ -57,7 +78,7 @@ def add_favorite(request, product_id):
 
 @login_required
 def my_favorite(request):
-    favorites = Favorite.objects.all()
+    favorites = Favorite.objects.filter(user_name=request.user)
     context = {"favorites": favorites}
     return render(request, "catalog/product_favorites.html", context)
 

@@ -3,7 +3,6 @@
 {% load static %}
 
 {% block content %}
-
     <header class="s-masthead text-center text-white d-flex" style="background-image: url({{ image }}) !important;">
         <div class="container my-auto">
             <div class="row">
@@ -15,6 +14,7 @@
             </div>
         </div>
     </header>
+    {% include "partials/message_alerte.html" %}
 
     <div class="jumbotron">
         <h2 class="text-center">Vous recherchez peut-être...</h2>

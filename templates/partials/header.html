@@ -1,6 +1,6 @@
 <!-- Navigation-->
 {% load static %}
-<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-3" id="mainNav">
     <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="{% url 'frontend:home' %}">
             <img src="{% static 'images/logo_pur_beurre.png' %}" width="50" height="50"/>
@@ -8,6 +8,12 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                <form class="input-group">
+                    <input class="form-control me-2" type="search" placeholder="Nom du produit" aria-label="Search">
+                    <span class="input-group-append">
+                    <button class="btn btn-primary myButton" type="submit">Chercher</button>
+                    </span>
+                </form>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="{% url "accounts:dashboard" %}">{{ user.username }}</a>
@@ -16,14 +22,14 @@
                     <a class="nav-link js-scroll-trigger" href="{% url "accounts:logout" %}">Déconnexion</a>
                 </li>
                 {% else %}
-                <li class="nav-item">
+                <li class="nav-item mt-2">
                     <a class="nav-link js-scroll-trigger" href="{% url "accounts:register" %}">
-                        <img src="{% static "images/register.png" %}" />
+                        Inscription <!-- <img src="{% static "images/register.png" %}" /> -->
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mt-2">
                     <a class="nav-link js-scroll-trigger" href="{% url "accounts:login" %}">
-                        <img src="{% static "images/login.png" %}" />
+                        Connexion <!-- <img src="{% static "images/login.png" %}" /> -->
                     </a>
                 </li>
                 {% endif %}

@@ -57,6 +57,11 @@ Les données pour tous les produits sont disponibles grâce à l'API Open Food F
 Cette API ne nécessite pas l'utilisation d'une clée d'authentification.
 La base de données Open Food Facts est disponible sous licence Open Database Licence (Odbl).
 
+Enregistrer les produits dans la base de données en local
+```installerdb
+$ python manage.py init_db
+```
+
 * [Lien OPEN FOOD FACTS](https://fr.openfoodfacts.org/cgi/search.pl)
 
 Demarrer l'application avec la commande suivante

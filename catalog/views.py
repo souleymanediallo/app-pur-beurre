@@ -30,10 +30,10 @@ def search_nav(request):
 def search(request):
     query = request.GET.get('query')
     try:
-        product = Product.objects.filter(name=query).first()
+        product = Product.objects.filter(name__icontains=query).first()
         substitutes = Product.objects.filter(
             category=product.category,
-            nutrition_grade=product.nutrition_grade).order_by("nutrition_grade")[:12]
+            nutrition_grade__lt=product.nutrition_grade).order_by("nutrition_grade")[:12]
         products = substitutes
         context = {
             'products': products,

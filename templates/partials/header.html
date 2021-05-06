@@ -9,8 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto my-2 my-lg-0">
                 <form class="input-group"  method="GET" action="{% url 'catalog:search' %}">
-                    {% csrf_token %}
-                    <input class="form-control me-2" type="search" name="q" placeholder="Nom du produit">
+                    <input class="form-control me-2" type="search" name="query" placeholder="Nom du produit">
                     <span class="input-group-append">
                     <button class="btn btn-primary myButton" type="submit">Chercher</button>
                     </span>

@@ -4,12 +4,12 @@
 
 {% block content %}
 
-    <header class="s-masthead text-center text-white d-flex" style="background-image: url({{ image }}) !important;">
+    <header class="header-m text-center text-white d-flex">
         <div class="container my-auto">
             <div class="row">
                 <div class="col-lg-10 mx-auto">
                     <h1 class="text-uppercase">
-                        <strong>{{ title }}</strong>
+                        <strong>Mes Aliments</strong>
                     </h1>
                 </div>
             </div>
@@ -17,12 +17,13 @@
     </header>
 
     <div class="jumbotron">
-        <h2 class="text-center">Mes produits favorits</h2>
+        <h2 class="text-center">Voir mes produits favorits</h2>
     </div>
 
     <section>
         <div class="container">
             <div class="row">
+                {% if favorites %}
                 {% for product in favorites %}
                 <div class="col-lg-4 col-md-12">
                     <a href="{% url 'catalog:detail' product.id %}" title="Fiche produit">
@@ -50,6 +51,14 @@
                     </a>
                 </div>
                 {% endfor %}
+                {% else %}
+                    <div class="col-md-12 text-center">
+                        <p class="h3 text-center">Aucun produit a été ajouté dans mes favorits</p>
+                        <a id="off-btn" class="btn btn-primary js-scroll-trigger mt-3 mb-5" href="{% url "frontend:home" %}">
+                            Retour à la page d'accueil
+                        </a>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </section>

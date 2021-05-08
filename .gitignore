@@ -29,6 +29,8 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *.cover
+accounts/tests/.pytest_cache
+.pytest_cache
 
 # Translations
 *.pot

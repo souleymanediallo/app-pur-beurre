@@ -1,6 +1,5 @@
 from django.test import SimpleTestCase
-from django.urls import reverse, resolve
-from accounts.views import register
+from django.urls import reverse
 
 
 class TestUrls(SimpleTestCase):

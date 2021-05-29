@@ -1,3 +1,5 @@
+from .dev import *
+
 """
 Settings travis
 """
@@ -7,7 +9,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': '',
-        'USER': 'postgre',
+        'USER': 'postgres',
         'PASSWORD': '',
         'HOST': '',
         'PORT': '',

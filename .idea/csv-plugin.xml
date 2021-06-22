@@ -115,6 +115,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/pydjango/settings/travis.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/pytest.ini">
           <value>
             <Attribute>

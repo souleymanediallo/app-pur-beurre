@@ -9,7 +9,8 @@ branches:
   only:
     - staging
 
-env: DJANGO_SETTINGS_MODULE="pydjango.settings.travis"
+env:
+  - DJANGO_SETTINGS_MODULE="pydjango.settings.travis"
 
 services:
   - postgresql

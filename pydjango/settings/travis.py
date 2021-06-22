@@ -1,4 +1,5 @@
-from .dev import *
+# from .dev import *
+from pydjango.settings.dev import *
 
 """
 Settings travis

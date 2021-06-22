@@ -8,7 +8,7 @@ Settings travis
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '',
+        'NAME': 'travis_ci_test',
         'USER': 'postgres',
         'PASSWORD': '',
         'HOST': '',

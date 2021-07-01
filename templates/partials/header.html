@@ -16,7 +16,7 @@
                 </form>
                 {% if user.is_authenticated %}
                 <li class="nav-item mt-2">
-                    <a class="nav-link js-scroll-trigger" href="{% url "accounts:dashboard" %}">
+                    <a class="nav-link js-scroll-trigger" href="{% url "dashboard" %}">
                         <i class="fas fa-user"></i></a>
                 </li>
                 <li class="nav-item mt-2">
@@ -30,18 +30,18 @@
                     </a>
                 </li>
                 <li class="nav-item mt-2">
-                    <a class="nav-link js-scroll-trigger" href="{% url "accounts:logout" %}">
+                    <a class="nav-link js-scroll-trigger" href="{% url "logout" %}">
                         <i class="fas fa-sign-in-alt"></i>
                     </a>
                 </li>
                 {% else %}
                 <li class="nav-item mt-2">
-                    <a class="nav-link js-scroll-trigger" href="{% url "accounts:register" %}">
+                    <a class="nav-link js-scroll-trigger" href="{% url "register" %}">
                         Inscription <!-- <img src="{% static "images/register.png" %}" /> -->
                     </a>
                 </li>
                 <li class="nav-item mt-2">
-                    <a class="nav-link js-scroll-trigger" href="{% url "accounts:login" %}">
+                    <a class="nav-link js-scroll-trigger" href="{% url "login" %}">
                         Connexion <!-- <img src="{% static "images/login.png" %}" /> -->
                     </a>
                 </li>

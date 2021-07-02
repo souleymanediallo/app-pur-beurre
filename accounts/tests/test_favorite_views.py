@@ -1,7 +1,6 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 
-from catalog.models import Product
 from accounts.models import CustomUser
 
 

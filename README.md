@@ -1,6 +1,6 @@
 # Projet 8 : Créez une plateforme pour amateurs de Nutella
 
-## Contexte
+## Contexte du proojet
 
 Il s’agit de créer une application web en utilisant le framework Django et l’API OPENFOODFACTS. 
 Cette application permettra à quiconque de trouver un substitut sain à un aliment considéré comme **"Trop gras,

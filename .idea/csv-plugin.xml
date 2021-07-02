@@ -80,6 +80,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/catalog/tests.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/catalog/tests/models.py">
           <value>
             <Attribute>
@@ -105,6 +112,13 @@
           <value>
             <Attribute>
               <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/pydjango/settings/travis.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
             </Attribute>
           </value>
         </entry>

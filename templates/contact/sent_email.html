@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Masthead-->
+    {% include "partials/message_alerte.html" %}
+    <header class="header-m text-center text-white d-flex">
+        <div class="container my-auto">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h1 class="text-uppercase">
+                        <strong>Votre email a été envoyé</strong>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Services-->
+    <section class="page-section" id="services">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <p class="alert alert-info">Votre email a été envoyé avec success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

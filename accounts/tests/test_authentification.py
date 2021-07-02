@@ -5,7 +5,7 @@ from django.urls import reverse
 
 class BaseTest(TestCase):
     def setUp(self):
-        self.register_url = reverse('accounts:register')
+        self.register_url = reverse('register')
         return super().setUp()
 
 

@@ -15,6 +15,8 @@ urlpatterns = [
     path('', include('frontend.urls')),
     path('account/', include('accounts.urls')),
     path('catalog/', include('catalog.urls')),
+    path('contact/', include('contact.urls')),
+    path('autocomplete/', include('autocomplete.urls', namespace="autocomplete")),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

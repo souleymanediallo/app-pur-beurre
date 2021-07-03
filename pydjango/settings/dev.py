@@ -92,24 +92,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-OPENFOODFACTS_CATEGORIES = [
-    "fromages",
-    "pizzas",
-    "pâtes à tartiner",
-    "viandes",
-    "boissons",
-    "pains",
-    "sauces",
-    "confitures",
-    "chocolats noirs aux noisettes",
-    "saucisses cocktail",
-    "Quiches lorraines",
-    "guimauves",
-    "hamburgers",
-    "ravioles",
-    "merguez"
-]
-
 # Custom user model
 AUTH_USER_MODEL = "accounts.CustomUser"
 

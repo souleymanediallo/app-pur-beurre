@@ -37,7 +37,7 @@ def profile_update(request):
             u_form.save()
             p_form.save()
             messages.success(request, f"Votre compte a été mis à jour.")
-            return redirect('accounts:dashboard')
+            return redirect('dashboard')
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)

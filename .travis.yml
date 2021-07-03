@@ -16,5 +16,4 @@ services:
   - postgresql
 
 script:
-  - export SECRET_KEY=SECRET_KEY
   - python manage.py test

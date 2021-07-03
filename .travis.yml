@@ -7,7 +7,7 @@ before_script:
 
 branches:
   only:
-    - staging
+    - master
 
 env:
   - DJANGO_SETTINGS_MODULE="pydjango.settings.travis"

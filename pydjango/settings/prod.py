@@ -1,5 +1,6 @@
 from .dev import *
-
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 INSTALLED_APPS += ["storages"]
 
@@ -22,3 +23,18 @@ STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/"
 DEFAULT_FILE_STORAGE = "utils.storages.MediaRootS3Boto3Storage"
 MEDIA_URL = f"https://{aws_s3_domain}/media/"
 
+# SENTRY
+# --------------------------------------------------------------------------------
+sentry_sdk.init(
+    dsn="https://9fec4cf129584cf99de2019aa3dac8f8@o484516.ingest.sentry.io/5824741",
+    integrations=[DjangoIntegration()],
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0,
+
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True
+)

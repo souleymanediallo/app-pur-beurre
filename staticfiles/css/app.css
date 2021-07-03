@@ -1,9 +1,9 @@
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Scope One", sans-serif;
 }
 
 h1, h2, h3{
-    font-family: "Scope One", sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .header-m {
@@ -20,6 +20,9 @@ h1, h2, h3{
         height: 300px;
         padding-top: 4.5rem;
         padding-bottom: 0;
+    }
+    #mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link {
+        color: rgba(255, 255, 255, 0.7);
     }
 }
 

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db.models.signals import post_save
+from PIL import Image
 
 
 # CustomUser
@@ -48,6 +49,21 @@ class CustomUser(AbstractBaseUser):
 
 class Profile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    image = models.ImageField(default="user.png", upload_to="photos", blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.user.username}"
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        img = Image.open(self.image.path)
+
+        if img.height > 80 or img.width > 80:
+            output_size = (80, 80)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
 
 
 def post_save_receiver(sender, instance, created, **kwargs):

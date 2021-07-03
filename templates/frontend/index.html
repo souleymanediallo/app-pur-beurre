@@ -18,7 +18,8 @@
                 <div class="col-lg-8 ">
                     <form id="search"  method="GET" action="{% url 'catalog:search' %}">
                         <div class="input-group">
-                            <input type="text" name="query" id ="query" class="form-control" placeholder="Entrez le produit que vous voulez remplacer" required>
+                            <input type="search" name="query" id ="query" class="form-control product-input"
+                                   placeholder="Entrez le produit que vous voulez remplacer" required>
                             <span class="input-group-append">
                                 <button type="submit" class="btn btn-primary myButton">Afficher</button>
                             </span>

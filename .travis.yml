@@ -1,5 +1,6 @@
 language: python
 python:
+<<<<<<< HEAD
         - '3.8.5'
 
 before_script:
@@ -16,3 +17,23 @@ services:
 
 script:
         - /.manage.py test
+=======
+  - '3.8'
+
+before_script:
+  - pip install -r requirements.txt
+
+branches:
+  only:
+    - master
+
+env:
+  - DJANGO_SETTINGS_MODULE="pydjango.settings.travis"
+
+services:
+  - postgresql
+
+script:
+  - export SECRET_KEY=SECRET_KEY
+  - python manage.py test
+>>>>>>> 63deacf906b9a255ca9ed65b6b3c44f23b8f9e9c

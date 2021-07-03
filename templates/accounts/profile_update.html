@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+    <!-- Masthead-->
+    <header class="header-m text-center text-white d-flex">
+        <div class="container my-auto">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h1 class="text-uppercase">
+                        <strong>Mettre à jour mon profile</strong>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="my-5">
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1 class="h3">Modifier mon Profile : <a href="{% url 'dashboard' %}">Retour à mon Profile</a></h1>
+                        </div>
+                        <div class="card-body border">
+                            <form method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    {{ u_form|crispy }}
+                                    {{ p_form|crispy }}
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

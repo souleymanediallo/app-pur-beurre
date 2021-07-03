@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
     "frontend.apps.FrontendConfig",
     "catalog.apps.CatalogConfig",
+    "contact.apps.ContactConfig",
+    "autocomplete.apps.AutocompleteConfig",
     "crispy_forms",
 ]
 
@@ -90,7 +92,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Custom user model
 AUTH_USER_MODEL = "accounts.CustomUser"
 
@@ -121,4 +122,12 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 LOGIN_REDIRECT_URL = "frontend:home"
 LOGOUT_REDIRECT_URL = "frontend:home"
-LOGIN_URL = "accounts:login"
+LOGIN_URL = "login"
+
+# SMTP CONFIGURATIONS EMAIL BACKEND
+EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Masthead-->
+    {% include "partials/message_alerte.html" %}
+    <header class="header-m text-center text-white d-flex">
+        <div class="container my-auto">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h1 class="text-uppercase">
+                        <strong>Contactez-nous</strong>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Services-->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-dark alert-dismissible fade show my-4" role="alert">
+                {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <section class="page-section" id="services">
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Formulaire de contact</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Nom" name="name">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Email" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <textarea rows="5" class="form-control" name="message" placeholder="Saisir votre message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

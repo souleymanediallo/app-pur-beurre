@@ -55,15 +55,15 @@ class Profile(models.Model):
     def __str__(self):
         return f"{self.user.username}"
 
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-
-        img = Image.open(self.image.path)
-
-        if img.height > 80 or img.width > 80:
-            output_size = (80, 80)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)
+    #
+    #     img = Image.open(self.image.path)
+    #
+    #     if img.height > 80 or img.width > 80:
+    #         output_size = (80, 80)
+    #         img.thumbnail(output_size)
+    #         img.save(self.image.path)
 
 
 def post_save_receiver(sender, instance, created, **kwargs):

@@ -18,12 +18,9 @@ urlpatterns = [
     path('', include('frontend.urls')),
     path('account/', include('accounts.urls')),
     path('catalog/', include('catalog.urls')),
-<<<<<<< HEAD
     path('sentry-debug/', trigger_error),
-=======
     path('contact/', include('contact.urls')),
     path('autocomplete/', include('autocomplete.urls', namespace="autocomplete")),
->>>>>>> 63deacf906b9a255ca9ed65b6b3c44f23b8f9e9c
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

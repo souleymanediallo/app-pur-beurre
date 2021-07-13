@@ -1,18 +1,18 @@
-# Projet 8 : Créez une plateforme pour amateurs de Nutella
+# Projet 11 : Améliorez un projet existant en Python
 
 ## Contexte du proojet
 
-Il s’agit de créer une application web en utilisant le framework Django et l’API OPENFOODFACTS. 
-Cette application permettra à quiconque de trouver un substitut sain à un aliment considéré comme **"Trop gras,
-trop sucré, trop salé"**. Pour ce faire, je crée un algorithme qui va chercher dans ma base de données l’aliment 
-qui a un meilleur score nutritionnel à l’aliment demandé et qui est dans la même catégorie. 
-Cela nécessite l’utilisation des librairies externes comme Bootstrap ainsi que jQuery. 
-L’application doit être responsive,  tester et déployer sur heroku en respectant le cahier des charges.
+Il s’agit d’apporter des améliorations de fonctionnalités sur un projet déjà réalisé dans le cadre de ce parcours Python et de corriger des dysfonctionnements signalés par le client sur l’application. J’ai choisi le projet 10, qui est une application Python/Django. Cette application permet à quiconque de trouver un substitut sain à un aliment considéré comme "Trop gras, trop sucré ou trop salé". Pour ce faire, plusieurs possibilités d’améliorations s'offrent à moi. J’ai pris l’initiative d’améliorer les points suivants :
+
+* Offrir la possibilité aux utilisateurs de changer leurs mots de passe et leur adresse mail.
+* Offrir la possibilité aux utilisateurs de personnaliser leur profil en ajoutant le choix d’une photo.
+* L’ajout d’un formulaire de contact pour envoyer un message depuis l’application.
+
 
 ## Liens
 
-* [Lien vers Trello](https://trello.com/b/j1Zc429R/projet-8-créez-une-plateforme-pour-amateurs-de-nutella)
-* [Lien vers Heroku](https://app-pur-beurre.herokuapp.com/)
+* [Lien vers Trello](https://trello.com/b/j1Zc429R/projet-11-améliorez-un-projet-existant-en-python)
+* [Lien en ligne ](http://143.110.237.110/)
 
 ## Installation
 
